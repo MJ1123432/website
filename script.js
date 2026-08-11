@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.getElementById("navbar");
   const themeToggleBtn = document.getElementById("theme-toggle");
   const themeIcon = document.getElementById("theme-icon");
+  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+  const navLinksList = document.querySelector(".nav-links");
 
   // SVG Icons for Light and Dark modes
   const moonIcon =
@@ -32,7 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("resq-theme", theme);
   });
 
-  // 3. Navbar scroll effect
+  // 3. Handle Mobile Menu Toggle
+  if (mobileMenuBtn && navLinksList) {
+    mobileMenuBtn.addEventListener("click", () => {
+      navLinksList.classList.toggle("active");
+    });
+
+    // Close menu when a link or theme button is clicked
+    document.querySelectorAll(".nav-links a, #theme-toggle").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinksList.classList.remove("active");
+      });
+    });
+  }
+
+  // 4. Navbar scroll effect
   window.addEventListener("scroll", () => {
     if (window.scrollY > 20) {
       navbar.style.padding = "0.8rem 0";
@@ -41,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 4. Smooth scrolling for navigation links
+  // 5. Smooth scrolling for navigation links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
@@ -56,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 5. Intersection Observer for Scroll Animations
+  // 6. Intersection Observer for Scroll Animations
   const observerOptions = {
     root: null,
     rootMargin: "0px",

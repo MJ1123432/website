@@ -20,14 +20,13 @@
 
 /* Dark Mode Override Colors */
 body.dark-mode {
-  --bg-slate: #0f172a; /* Deep Dark Blue/Slate */
-  --text-dark: #f8fafc; /* Off-White Text */
-  --text-muted: #94a3b8; /* Muted Grey Text */
-  --card-bg: #1e293b; /* Elevated Dark Card */
-  --nav-bg: rgba(15, 23, 42, 0.85); /* Dark Frosted Glass */
+  --bg-slate: #0f172a;
+  --text-dark: #f8fafc;
+  --text-muted: #94a3b8;
+  --card-bg: #1e293b;
+  --nav-bg: rgba(15, 23, 42, 0.85);
   --border-color: rgba(255, 255, 255, 0.1);
 
-  /* The "Res" logo pops better as a lighter blue in dark mode */
   --theme-text-color: #60a5fa;
   --theme-btn-color: #f8fafc;
 }
@@ -71,6 +70,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative; /* Important for absolute positioned mobile menu */
 }
 
 .logo {
@@ -120,6 +120,17 @@ body {
 
 .nav-links a:hover {
   color: var(--theme-text-color);
+}
+
+/* Mobile Menu Button (Hidden on Desktop) */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--theme-text-color);
+  padding: 5px;
+  transition: color 0.4s ease;
 }
 
 /* Hero Section */
@@ -396,7 +407,49 @@ footer {
   .hero-buttons {
     justify-content: center;
   }
+
+  /* Reveal Hamburger Menu */
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  /* Convert Navigation Links to Dropdown Menu */
   .nav-links {
-    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Hidden by default */
+    transition:
+      clip-path 0.4s ease-in-out,
+      background 0.4s ease;
+  }
+
+  /* Shown when hamburger is clicked */
+  .nav-links.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+
+  #theme-toggle {
+    margin: 0 auto;
   }
 }
