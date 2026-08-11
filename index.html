@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResQ - Barangay Emergency System</title>
+    <!-- Modern Web Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar (Glassmorphism) -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <!-- Changed 'Res' color to primary blue -->
+          <span class="logo-res" style="color: var(--primary-dark)">Res</span
+          ><span class="logo-q">Q</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li>
+            <!-- Replaced Admin Portal with Light/Dark Mode Icon Button -->
+            <button
+              id="theme-toggle"
+              style="
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: var(--primary-dark);
+                display: flex;
+                align-items: center;
+                padding: 5px;
+                transition: transform 0.2s;
+              "
+              aria-label="Toggle Theme"
+            >
+              <svg
+                id="theme-icon"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-content fade-up">
+          <h1>
+            Centralized Emergency <br />
+            & Medical Response
+          </h1>
+          <p>
+            Empowering Brgy. Magsaysay with real-time evacuation monitoring,
+            direct medical reporting, and dynamic location tracking for faster
+            rescue operations.
+          </p>
+
+          <div class="hero-buttons">
+            <!-- Directly links to the local APK file for instant download -->
+            <a
+              href="./ResQ.apk"
+              download="ResQ.apk"
+              class="btn btn-primary shadow-hover"
+            >
+              <!-- Download Icon -->
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Mobile App
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual fade-up delay-1">
+          <div class="mockup-card floating-card">
+            <!-- Changed 'Res' color to primary blue to match navbar -->
+            <span
+              class="logo-res"
+              style="font-size: 3rem; color: var(--primary-dark)"
+              >Res</span
+            ><span class="logo-q" style="font-size: 3rem">Q</span>
+            <p>Resident & Official App</p>
+            <div class="mockup-badges">
+              <span class="badge blue"
+                >Digital Emergency Evacuation Registration</span
+              >
+              <span class="badge red"
+                >Digital Emergency Registry Management</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="features-container">
+        <h2 class="section-title fade-up">System Features</h2>
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card fade-up">
+            <div class="feature-icon blue">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2563EB"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <h3>Live Tracking</h3>
+            <p>
+              Real-time GPS mapping of residents, barangay officials, and
+              evacuation center capacities.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card fade-up delay-1">
+            <div class="feature-icon red">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#EF4444"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M8 11h8"></path>
+                <path d="M12 7v8"></path>
+              </svg>
+            </div>
+            <h3>Medical Reports</h3>
+            <p>
+              Residents can submit urgent health incidents with photo evidence
+              directly to officials.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card fade-up delay-2">
+            <div class="feature-icon orange">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#D97706"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3>Evacuation Monitoring</h3>
+            <p>
+              Live tracking of family occupancies across designated barangay
+              evacuation centers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="logo">
+          <!-- Kept 'Res' white here so it remains visible against the dark blue footer -->
+          <span class="logo-res" style="color: white">Res</span
+          ><span class="logo-q">Q</span>
+        </div>
+        <p>Developed for Brgy. Magsaysay, Lapaz, Iloilo City.</p>
+        <p class="copyright">
+          &copy; 2026 ResQ Project Team. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
